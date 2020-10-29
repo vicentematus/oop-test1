@@ -10,6 +10,7 @@ public class Profesor extends Persona {
 	}
 
 	public void setGradoAcademico(String gradoAcademico) {
+		System.out.println("[ACTUALIZACION] Cambiado el Grado Academico a " + gradoAcademico);
 		this.gradoAcademico = gradoAcademico;
 	}
 

@@ -2,20 +2,21 @@
 public class Auxiliar extends Persona {
 
 	String facultad;
-	int numeroFolio;
+	String numeroFolio;
 
-	public Auxiliar(String facultad, int numeroFolio, String nombre, String rut, int edad) {
+	public Auxiliar(String facultad, String numeroFolio, String nombre, String rut, int edad) {
 		super(nombre, rut, edad);
 		this.facultad = facultad;
-		this.nombre = nombre;
+		this.numeroFolio = numeroFolio;
 	}
 
 	public void setFacultad(String facultad) {
+		System.out.println("[ACTUALIZACION] Facultad cambiada a " + facultad);
 		this.facultad = facultad;
 	}
 
 	public void getData() {
-		System.out.println("***PROFESOR*** ");
+		System.out.println("***AUXILIAR*** ");
 		System.out.println("Nombre: " + nombre);
 		System.out.println("RUT:" + rut);
 		System.out.println("Edad: " + edad);

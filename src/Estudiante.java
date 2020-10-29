@@ -21,7 +21,7 @@ public class Estudiante extends Persona {
 		int yearEgresoAux;
 		if (yearEgreso < yearIngreso) {
 
-			System.out.println("Anio de Egreso es menor al de Ingreso");
+			System.out.println("[ERROR] Anio de Egreso es menor al de Ingreso");
 			System.out.println("Tiene que ser mayor a " + yearIngreso + "\nIngrese nuevamente el valor:");
 
 			boolean validacion = false;
@@ -29,10 +29,11 @@ public class Estudiante extends Persona {
 			while (!validacion) {
 
 				if (yearEgresoAux < yearIngreso) {
+					System.out.println("[ERROR] Anio de Egreso es menor a mayor");
 					System.out.println("Tiene que ser mayor a " + yearIngreso + "\nIngrese nuevamente el valor.:");
 					yearEgresoAux = sc.nextInt();
 				} else if (yearIngreso == yearEgresoAux) {
-					System.out.println("No pueden graduarse el mismo anio. \nIngrese un numero mayor a " + yearIngreso);
+					System.out.println("No pueden graduarse el mismo anio. \nIngrese un anio mayor a " + yearIngreso);
 					yearEgresoAux = sc.nextInt();
 				} else {
 					System.out.println("[CORRECTO] Modificado con exito.");
@@ -48,8 +49,31 @@ public class Estudiante extends Persona {
 			System.out.println("Cambiado con exito de " + this.yearEgreso + ">>>> " + yearEgreso);
 			this.yearEgreso = yearEgreso;
 		} else {
-			System.out.println("[ERROR] El year ingresado tiene que ser mayor al actual");
+			System.out.println("[ERROR] El year ingresado tiene que ser mayor al actual que es " + this.yearEgreso);
+
+			while (true) {
+				System.out.println("Ingrese nuevamente un valor");
+				yearEgreso = sc.nextInt();
+
+				if (yearEgreso > this.yearEgreso) {
+					System.out.println("Cambiado con exito de " + this.yearEgreso + ">>>> " + yearEgreso);
+					this.yearEgreso = yearEgreso;
+					break;
+				}
+
+				else if (yearEgreso == this.yearEgreso) {
+					System.out
+							.println("No pueden graduarse el mismo anio. \nIngrese un anio mayor a " + this.yearEgreso);
+
+				} else {
+					System.out.println(
+							"[ERROR] El year ingresado tiene que ser mayor al actual que es " + this.yearEgreso);
+
+				}
+			}
+
 		}
+
 	}
 
 	public void getData() {
